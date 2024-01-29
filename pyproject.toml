@@ -21,6 +21,7 @@ license = {text = "Apache-2.0"}
 
 [tool.maturin]
 features = ["pyo3/extension-module"]
+python-source = "python"
 
 [tool.pdm]
 distribution = true

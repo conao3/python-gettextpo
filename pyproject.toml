@@ -17,7 +17,7 @@ authors = [
 ]
 dependencies = []
 readme = "README.md"
-license = {text = "Apache-2.0"}
+license = {text = "GPL-3.0-or-later"}
 
 [tool.maturin]
 features = ["pyo3/extension-module"]

@@ -24,3 +24,9 @@ features = ["pyo3/extension-module"]
 
 [tool.pdm]
 distribution = true
+
+[tool.pdm.dev-dependencies]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-icdiff>=0.9",
+]

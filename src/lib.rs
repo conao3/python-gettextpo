@@ -163,8 +163,15 @@ fn po_message_iterator_free(iterator: &PoMessageIterator) -> PyResult<()> {
 }
 
 #[pyfunction]
-fn po_next_message(iterator: &PoMessageIterator) -> PyResult<PoMessage> {
-    unsafe { Ok(PoMessage(gettextpo::po_next_message(iterator.0))) }
+fn po_next_message(iterator: &PoMessageIterator) -> PyResult<Option<PoMessage>> {
+    unsafe {
+        let res = gettextpo::po_next_message(iterator.0);
+        if res.is_null() {
+            Ok(None)
+        } else {
+            Ok(Some(PoMessage(res)))
+        }
+    }
 }
 
 #[pyfunction]
@@ -521,7 +528,6 @@ fn gettextpo_(_py: Python, m: &PyModule) -> PyResult<()> {
     m.add_function(wrap_pyfunction!(po_file_write, m)?)?;
     m.add_function(wrap_pyfunction!(po_message_check_format, m)?)?;
 
-    m.add_function(wrap_pyfunction!(po_file_create, m)?)?;
     m.add_function(wrap_pyfunction!(po_file_create, m)?)?;
     m.add_function(wrap_pyfunction!(po_file_read_v3, m)?)?;
     m.add_function(wrap_pyfunction!(po_file_write_v2, m)?)?;

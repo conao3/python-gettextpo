@@ -521,7 +521,7 @@ fn po_message_check_format_v2(message: &PoMessage) -> PyResult<()> {
 /// A Python module implemented in Rust.
 #[pymodule]
 #[pyo3(name = "gettextpo")]
-fn gettextpo_(_py: Python, m: &PyModule) -> PyResult<()> {
+fn gettextpo_(_py: Python<'_>, m: &Bound<'_, PyModule>) -> PyResult<()> {
     m.add_function(wrap_pyfunction!(sum_as_string, m)?)?;
 
     m.add_function(wrap_pyfunction!(po_file_read, m)?)?;

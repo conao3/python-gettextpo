@@ -26,8 +26,8 @@ python-source = "python"
 [tool.pdm]
 distribution = true
 
-[tool.pdm.dev-dependencies]
+[dependency-groups]
 dev = [
-    "pytest>=8.0.0",
+    "pytest>=9.2.0",
     "pytest-icdiff>=0.9",
 ]

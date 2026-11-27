@@ -132,7 +132,6 @@ jobs:
     strategy:
       matrix:
         target: [x86_64]
-        python: ['3.12', '3.15']
     steps:
       - uses: actions/checkout@v7.0.1
         with:
@@ -140,7 +139,9 @@ jobs:
           persist-credentials: false
       - uses: actions/setup-python@v7.1.0
         with:
-          python-version: ${{ matrix.python }}
+          python-version: |
+            3.12
+            3.15
       - name: Build wheels
         uses: PyO3/maturin-action@v1.51.0
         with:
@@ -159,7 +160,7 @@ jobs:
             fi
       - uses: actions/upload-artifact@v7.0.2
         with:
-          name: wheels-linux-${{ matrix.target }}-py${{ matrix.python }}
+          name: wheels-linux-${{ matrix.target }}
           path: dist
 
   macos:
@@ -171,7 +172,6 @@ jobs:
     strategy:
       matrix:
         target: [x86_64, aarch64]
-        python: ['3.12', '3.15']
     steps:
       - uses: actions/checkout@v7.0.1
         with:
@@ -179,7 +179,9 @@ jobs:
           persist-credentials: false
       - uses: actions/setup-python@v7.1.0
         with:
-          python-version: ${{ matrix.python }}
+          python-version: |
+            3.12
+            3.15
       - name: Install gettext
         run: brew install gettext
       - name: Build wheels
@@ -192,7 +194,7 @@ jobs:
           args: --release --out dist --find-interpreter
       - uses: actions/upload-artifact@v7.0.2
         with:
-          name: wheels-macos-${{ matrix.target }}-py${{ matrix.python }}
+          name: wheels-macos-${{ matrix.target }}
           path: dist
 
   sdist:

@@ -1,4 +1,8 @@
-# gettextpo
+<p align="center"><img src="docs/assets/banner.png" alt="gettextpo: Read and edit GNU gettext PO translation files in Python" width="880"></p>
+<p align="center"><strong>Read and edit GNU gettext PO translation files in Python</strong></p>
+<p align="center"><a href="https://github.com/conao3/python-gettextpo/actions/workflows/CI.yml"><img src="https://github.com/conao3/python-gettextpo/actions/workflows/CI.yml/badge.svg?branch=master" alt="CI"></a> <a href="https://github.com/conao3/python-gettextpo/releases"><img src="https://img.shields.io/github/v/tag/conao3/python-gettextpo" alt="Latest tag"></a> <a href="LICENSE"><img src="https://img.shields.io/github/license/conao3/python-gettextpo" alt="License"></a> <a href="https://github.com/conao3/python-gettextpo/stargazers"><img src="https://img.shields.io/github/stars/conao3/python-gettextpo?style=flat" alt="GitHub stars"></a></p>
+<p align="center"><a href="#installation">Installation</a> | <a href="#quick-start">Quick Start</a> | <a href="#api-reference">API Reference</a> | <a href="#license">License</a></p>
+<h1>gettextpo</h1>
 
 Python bindings for the GNU gettext PO file library, built with Rust and PyO3.
 
